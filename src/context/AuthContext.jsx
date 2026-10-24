@@ -2,8 +2,30 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext(null)
 
-// Simulated users database (in-memory for this session)
-const usersDB = new Map()
+// Helper to load users from localStorage
+const loadUsersDB = () => {
+    try {
+        const stored = localStorage.getItem('usersDB')
+        if (stored) {
+            return new Map(JSON.parse(stored))
+        }
+    } catch (e) {
+        console.error('Failed to load users from localStorage:', e)
+    }
+    return new Map()
+}
+
+// Helper to save users to localStorage
+const saveUsersDB = (usersMap) => {
+    try {
+        localStorage.setItem('usersDB', JSON.stringify([...usersMap]))
+    } catch (e) {
+        console.error('Failed to save users to localStorage:', e)
+    }
+}
+
+// Persisted users database (survives page reloads)
+const usersDB = loadUsersDB()
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
@@ -33,6 +55,7 @@ export function AuthProvider({ children }) {
         }
 
         usersDB.set(email, newUser)
+        saveUsersDB(usersDB) // Persist to localStorage
 
         // Auto login after signup
         const userData = { id: newUser.id, name: newUser.name, email: newUser.email }

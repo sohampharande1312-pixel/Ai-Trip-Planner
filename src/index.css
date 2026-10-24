@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #f97316, #fbbf24);
+  background: linear-gradient(to bottom, #3329ba, #fbbf24);
   border-radius: 4px;
 }
 
@@ -32,7 +32,7 @@ body {
 
 /* Gradient text animation */
 .gradient-text {
-  background: linear-gradient(90deg, #f97316, #fbbf24, #f97316);
+  background: linear-gradient(90deg, #a20bed, #0e41ba, #2f0ccc);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -56,7 +56,7 @@ body {
 
 /* Button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(135deg, #d50a0a 0%, #dd0b1c 100%);
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
 }
@@ -147,7 +147,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #07dc8a 0%, #fbbf24 100%);
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
 }

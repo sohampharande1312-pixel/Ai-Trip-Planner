@@ -23,7 +23,7 @@ function Header() {
         localStorage.setItem('openrouter_key', apiKey.trim())
         setShowKeyInput(false)
         alert('API Key saved successfully!')
-        window.location.reload() // Reload to ensure services pick up the new key
+        // No reload needed — AIService reads the key fresh from localStorage on each call
     }
 
     return (

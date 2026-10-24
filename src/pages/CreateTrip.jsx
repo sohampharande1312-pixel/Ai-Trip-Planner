@@ -27,7 +27,7 @@ function CreateTrip() {
     }
 
     const handleDaysChange = (e) => {
-        setFormData({ ...formData, days: parseInt(e.target.value) })
+        setFormData({ ...formData, days: parseInt(e.target.value) || 1 })
     }
 
     const selectTraveler = (id) => {
@@ -65,7 +65,6 @@ function CreateTrip() {
         const budgetInfo = BUDGETS.find(b => b.id === formData.budget)
 
         const prompt = AI_PROMPT
-            .replace('{destination}', destination)
             .replace('{destination}', destination)
             .replace('{days}', formData.days.toString())
             .replace('{days}', formData.days.toString())
